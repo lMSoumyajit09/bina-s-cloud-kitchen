@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bina's Cloud Kitchen</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div class="logo reveal-left">Bina's Cloud Kitchen</div>
+    <nav>
+        <a href="#home" class="reveal">Home</a>
+        <a href="#menu" class="reveal">Menu</a>
+        <a href="#chefs" class="reveal">Chefs</a>
+        <a href="#contact" class="reveal">Checkout</a>
+        <button class="cart-btn reveal" onclick="toggleCheckout()">
+            🛒 <span id="cartCount" class="cart-count">0</span>
+        </button>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="reveal">Authentic Bengali Royal Cuisine</h1>
+        <p class="reveal">Crafted with tradition & love</p>
+        <button class="reveal" onclick="scrollToMenu()">Explore Menu</button>
+    </div>
+</section>
+
+<section id="menu">
+    <h2 class="reveal">Our Signature Menu</h2>
+
+    <div class="controls category-black reveal">
+        <input type="text" id="searchBar" placeholder="Search dishes..." onkeyup="searchFood()">
+        <select id="categoryFilter" onchange="filterCategory()">
+            <option value="All">All Categories</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Rice">Rice</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Ice Cream">Ice Cream</option>
+        </select>
+    </div>
+
+    <div id="foodContainer" class="food-grid"></div>
+</section>
+
+<section id="chefs">
+    <h2 class="reveal">Our Master Chefs</h2>
+    <div class="chef-grid">
+        <img src="images/chefs/chef1.jpg" class="reveal-left">
+        <img src="images/chefs/chef2.jpg" class="reveal">
+        <img src="images/chefs/chef3.jpg" class="reveal">
+        <img src="images/chefs/chef4.jpg" class="reveal-right">
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="reveal">Customer Details</h2>
+    <form id="orderForm" class="reveal">
+        <input type="text" id="name" placeholder="Your Full Name" required>
+        <input type="text" id="address" placeholder="Delivery Address" required>
+        <input type="text" id="phone" placeholder="Contact Number" required>
+    </form>
+</section>
+
+<div id="checkoutPanel" class="checkout-panel">
+    <h2>Your Order</h2>
+    <div id="cartItems"></div>
+
+    <div class="total-row">
+        <h3>Total: ₹ <span id="totalAmount">0</span></h3>
+    </div>
+
+    <div class="checkout-buttons">
+        <button onclick="saveBill()" class="save-btn">Save Bill</button>
+        <button onclick="placeOrder()" class="place-btn">Place Order</button>
+    </div>
+</div>
+
+<div class="bottom-total-bar">
+    <h3>Total Amount: ₹ <span id="bottomTotal">0</span></h3>
+    <button onclick="toggleCheckout()">View Cart</button>
+</div>
+
+<footer class="reveal">
+© 2026 Bina's Cloud Kitchen <br>
+Developed by : Soumya
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
